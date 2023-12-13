@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 
 const Beer = ({ beer }) => {
-    const { id, name, tagline, first_brewed, description, image_url, volume, ingredients } = beer;
+    const { id, name, tagline, image_url } = beer;
     return (
         <div>
             <div className="card card-compact bg-base-100 shadow-xl">
