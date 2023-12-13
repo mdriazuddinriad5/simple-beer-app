@@ -7,11 +7,24 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import Beers from './pages/Beers/Beers';
+import BeerDetails from './pages/Beers/BeerDetails';
+import Layout from './layout/layout';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Beers />
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <Beers />,
+      },
+      {
+        path: 'details/:id',
+        element: <BeerDetails />,
+        loader: ({ params }) => fetch(`https://api.punkapi.com/v2/beers/${params.id}`)
+      }
+    ]
   },
 ]);
 
